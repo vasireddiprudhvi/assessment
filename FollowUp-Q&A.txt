@@ -1,0 +1,31 @@
+
+
+Q1. How would you make this deployment fault tolerant and highly available?
+
+	AWS provides several built-in capabilities to achieve high availability:
+
+    Elastic Load Balancing: We can launch several EC2 instances and distribute traffic between them.
+    Availability Zones:     We can place instances in different AZs.
+    Auto Scaling:           We can make use of auto-scaling feature to detect when loads increase, and then dynamically add more instances.
+
+	The Elastic Load Balancer distributes traffic between two or more EC2 instances, each of which can potentially be deployed in a separate subnet that resides in a separate Amazon Availability Zone. 
+
+	These instances can be part of an Auto-Scaling Group, with additional instances launched on demand.
+
+
+Q2. How would you make this deployment more secure?
+
+	The deployment can be more secure by following the below:
+	
+	1. Encrypt the sensitive data. Do not Store Secrets in Plain Text thereby eliminating giving away the access to such sensitive information pertaining to the Company to some  
+	   malicious users.
+	2. Store Terraform state in a backend that supports encryption, instead of storing your state in a local terraform.tfstate file.
+	3. Strictly control who can access your Terraform backend.
+	
+
+Q3. How would you make this deployment cloud agnostic?
+
+    Terraform is cloud-agnostic and allows a single configuration to be used to manage multiple providers, and to even handle cross-cloud dependencies. This simplifies management and orchestration, helping operators build large-scale multi-cloud infrastructures.
+
+
+
